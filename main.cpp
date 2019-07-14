@@ -4,6 +4,8 @@
 #include "tree/bin_tree.h"
 #include "tree/traverse.h"
 
+#include "sword/chapter_2.h"
+
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -24,6 +26,8 @@ int main(int argc, char* argv[])
     postOrderNoRecursive(&root);
 
     levelOrder(&root);
+
+    test_chapter_2();
 
     cout << setfill('*') << setw(7) << "中国" << endl;
 
