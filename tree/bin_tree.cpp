@@ -28,7 +28,7 @@ Node* _createBinTreeByPreAndMidOrder(int* pre, int pre_begin, int pre_end,
         int *mid, int mid_begin, int mid_end)
 {
     Node* node = new Node();
-    node->data = pre[0];
+    node->data = pre[pre_begin];
     node->left = node->right = NULL;
 
     int index = mid_begin;
