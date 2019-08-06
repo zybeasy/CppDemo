@@ -1,7 +1,3 @@
-//
-// Created by zy on 2019/7/6.
-//
-
 #include <iostream>
 #include <iomanip>
 #include <stack>

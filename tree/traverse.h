@@ -1,7 +1,3 @@
-//
-// Created by zy on 2019/7/6.
-//
-
 #ifndef CPPDEMO_TRAVERSE_H
 #define CPPDEMO_TRAVERSE_H
 

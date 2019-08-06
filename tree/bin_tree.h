@@ -1,7 +1,3 @@
-//
-// Created by zy on 2019/7/6.
-//
-
 #ifndef CPPDEMO_BIN_TREE_H
 #define CPPDEMO_BIN_TREE_H
 
