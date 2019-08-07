@@ -9,6 +9,7 @@ using namespace std;
 ostream& operator<<(ostream& out, const Node p)
 {
     out << p.data << " " << p.left << " " << p.right;
+    return out;
 }
 
 Node* createTreeByFullPreOrder(int* data, int len)

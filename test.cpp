@@ -27,5 +27,8 @@ void test()
 
     int pre[] = {1, 2, 3, 4, 5, 6};
     int mid[] = {3, 2, 5, 4, 1, 6};
-    createBinTreeByPreAndMidOrder(pre, mid, 6);
+    Node* tree = createBinTreeByPreAndMidOrder(pre, mid, 6);
+
+    postOrderRecursive(tree);
+    postOrderNoRecursive(tree);
 }
