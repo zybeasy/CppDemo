@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void test()
+void test_tree()
 {
     Node tmp = {99, NULL, NULL};
     Node node1 = {1, NULL, NULL};
@@ -22,16 +22,13 @@ void test()
     postOrderNoRecursive(&root);
 
     levelOrder(&root);
+    int pre[] = {1, 2, 3, 4, 5, 6};
+    int mid[] = {3, 2, 5, 4, 1, 6};
+    Node* tree = createBinTreeByPreAndMidOrder(pre, mid, 6);
 
-    test_chapter_2();
-
-//    int pre[] = {1, 2, 3, 4, 5, 6};
-//    int mid[] = {3, 2, 5, 4, 1, 6};
-//    Node* tree = createBinTreeByPreAndMidOrder(pre, mid, 6);
-
-    int pre[] = {1};
-    int mid[] = {1};
-    Node* tree = createBinTreeByPreAndMidOrder(pre, mid, 1);
+//    int pre[] = {1};
+//    int mid[] = {1};
+//    Node* tree = createBinTreeByPreAndMidOrder(pre, mid, 1);
 
     postOrderRecursive(tree);
     postOrderNoRecursive(tree);
@@ -42,4 +39,13 @@ void test()
     getMidOrderNext(tree->left->right);
     getMidOrderNext(tree->right);
     getMidOrderNext(NULL);
+}
+
+void test()
+{
+
+
+    test_chapter_2();
+
+
 }

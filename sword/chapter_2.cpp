@@ -195,6 +195,8 @@ void ReplaceBlank(char str[], int length)
 }
 void test_chapter_2()
 {
+    cout << "TEST_CHAPTER_2 ====================================" << endl;
+
     int duplication;
     int data[] = {2, 1, 3, 1, 4};
     if(duplicate(data, sizeof(data)/sizeof(int), &duplication))
@@ -226,4 +228,43 @@ void test_chapter_2()
 
     DestroyList(p1);
 
+    QueueWithTwoStacks q;
+    q.push(10);
+    q.push(20);
+    cout << q.pop() << endl;
+    q.push(30);
+    cout << q.pop() << endl;
+    cout << q.pop() << endl;
+
+    cout << "TEST_CHAPTER_2 ====================================" << endl;
+}
+
+QueueWithTwoStacks::QueueWithTwoStacks() {}
+QueueWithTwoStacks::~QueueWithTwoStacks() {}
+
+void QueueWithTwoStacks::push(const int data)
+{
+    s1.push(data);
+}
+
+int QueueWithTwoStacks::pop()
+{
+    int top;
+    if(s2.empty())
+    {
+        if(s1.empty())
+            throw "ERROR";
+        else {
+            while(!s1.empty())
+            {
+                top = s1.top();
+                s1.pop();
+                s2.push(top);
+            }
+        }
+    }
+
+    top = s2.top();
+    s2.pop();
+    return top;
 }
