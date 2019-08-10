@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stack>
-
+#include <queue>
 
 #include "bin_tree.h"
 
@@ -8,7 +8,7 @@ using namespace std;
 
 ostream& operator<<(ostream& out, const Node p)
 {
-    out << p.data << " " << p.left << " " << p.right;
+    out << p.data << " " << p.left << " " << p.right << " " << p.parent;
     return out;
 }
 
@@ -30,7 +30,7 @@ Node* _createBinTreeByPreAndMidOrder(int* pre, int pre_begin, int pre_end,
 {
     Node* node = new Node();
     node->data = pre[pre_begin];
-    node->left = node->right = NULL;
+    node->left = node->right = node->parent = NULL;
 
     int index = mid_begin;
     while(index < mid_end + 1) {
@@ -57,6 +57,63 @@ Node* _createBinTreeByPreAndMidOrder(int* pre, int pre_begin, int pre_end,
     }
 
     return node;
+}
+
+void setParent(Node* root)
+{
+    queue<Node*> level;
+    if(root)
+        level.push(root);
+
+    Node* cur = NULL;
+    while(!level.empty())
+    {
+        cur = level.front();
+        level.pop();
+        if(cur->left)
+        {
+            cur->left->parent = cur;
+            level.push(cur->left);
+        }
+
+        if(cur->right)
+        {
+            cur->right->parent = cur;
+            level.push(cur->right);
+        }
+    }
+}
+
+Node* getMidOrderNext(Node* node)
+{
+    if(!node)
+        return NULL;
+
+    Node* next = NULL;
+
+    if(node->right) {
+        next = node->right;
+        while(next->left)
+            next = next->left;
+    }
+
+    else {
+        Node* parent = node->parent;
+        while(parent && parent->right == node)
+        {
+            node = parent;
+            parent = parent->parent;
+        }
+        next = parent;
+    }
+
+    if(next)
+        cout << *next << endl;
+    else
+        cout << "FUCKING NULL" << endl;
+
+    return next;
+
 }
 
 
