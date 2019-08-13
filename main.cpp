@@ -10,6 +10,9 @@ int main(int argc, char* argv[])
 //    test_tree();
 
     test();
+    cout << "TEST1" << endl;
+    cout << "TEST2" << endl;
+    cout << "TEST3" << endl;
 
     cout << setfill('*') << setw(7) << "中国" << endl;
 
