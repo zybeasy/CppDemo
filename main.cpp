@@ -14,6 +14,9 @@ int main(int argc, char* argv[])
     cout << "TEST2" << endl;
     cout << "TEST3" << endl;
 
+    cout << "TEST4" << endl;
+    cout << "TEST5" << endl;
+
     cout << setfill('*') << setw(7) << "中国" << endl;
 
     cout << endl << "=========================================================" << endl;
