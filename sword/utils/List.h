@@ -20,5 +20,9 @@ void DestroyList(ListNode* pHead);
 void AddToTail(ListNode** pHead, int value);
 void RemoveNode(ListNode** pHead, int value);
 
+ListNode* create_list(int* data, int len);
+
+void reverse_part_of_list(ListNode** head, int begin, int end);
+
 
 #endif //CPPDEMO_LIST_H

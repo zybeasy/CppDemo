@@ -7,6 +7,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+//    test_tree();
+
     test();
 
     cout << setfill('*') << setw(7) << "中国" << endl;

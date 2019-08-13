@@ -7,6 +7,22 @@
 
 using namespace std;
 
+ListNode* create_list(int* data, int len)
+{
+    if(!data || len <= 0)
+        return NULL;
+
+    ListNode* head = CreateListNode(data[0]);
+    ListNode* pre = head;
+    for(int i=1; i<len; ++i) {
+        ListNode* cur = CreateListNode(data[i]);
+        pre->m_pNext = cur;
+        pre = cur;
+    }
+
+    return head;
+}
+
 ListNode* CreateListNode(int value)
 {
     ListNode* pNode = new ListNode();
@@ -111,4 +127,45 @@ void RemoveNode(ListNode** pHead, int value)
         delete toDel;
         toDel = NULL;
     }
+}
+
+void reverse_part_of_list(ListNode** head, int begin, int end)
+{
+    if(!head || !(*head) || begin < 0 || end < 0 || begin > end)
+        return;
+
+    ListNode* pre = NULL;
+    ListNode* cur = *head;
+    int len = 0;
+    int index = 0;
+    while(cur)
+    {
+        if(index++ < begin)
+            pre = cur;
+        cur = cur->m_pNext;
+        len++;
+    }
+
+    if(len <= begin || len <= end)
+        return;
+
+    ListNode* old = NULL;
+    ListNode* next = NULL;
+    cur = pre ? pre->m_pNext : *head;
+    ListNode* tmp = cur;
+    index = begin;
+    while(cur && index++<=end) {
+        next = cur->m_pNext;
+        cur->m_pNext = old;
+        old = cur;
+        cur = next;
+    }
+
+    if(pre)
+        pre->m_pNext = old;
+    else
+        *head = old;
+
+    if(cur)
+        tmp->m_pNext = cur;
 }

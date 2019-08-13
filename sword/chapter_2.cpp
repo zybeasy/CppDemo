@@ -236,6 +236,19 @@ void test_chapter_2()
     cout << q.pop() << endl;
     cout << q.pop() << endl;
 
+    int array_data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    ListNode* head = create_list(array_data, sizeof(array_data)/sizeof(int));
+    PrintList(head);
+
+    reverse_part_of_list(&head, 0, 0);
+    PrintList(head);
+
+    reverse_part_of_list(&head, 0, 9);
+    PrintList(head);
+
+    reverse_part_of_list(&head, 0, 7);
+    PrintList(head);
+
     cout << "TEST_CHAPTER_2 ====================================" << endl;
 }
 

@@ -6,6 +6,8 @@
 
 #include "sword/chapter_2.h"
 
+void test_tree();
+
 void test();
 
 #endif //CPPDEMO_TEST_H
