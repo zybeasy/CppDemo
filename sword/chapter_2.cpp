@@ -193,6 +193,42 @@ void ReplaceBlank(char str[], int length)
         ori_len--;
     }
 }
+
+int min_in_rotated_array(int *data, int len)
+{
+    if(!data || len <= 0)
+        throw "[ERROR] Parameter Error!";
+
+    int i = 0, j = len - 1;
+    int result = i;
+
+    while(data[i] >= data[j]) {
+        if(j - i <= 1) {
+            result = j;
+            break;
+        }
+
+        int mid = (i + j) / 2;
+
+        if(data[i] == data[mid] && data[mid] == data[j]) {
+            for(int k=i; k<=j; ++k)
+                if (data[k] < data[result])
+                    result = k;
+
+            break;
+        }
+
+        if (data[i] >= data[mid])
+            j = mid;
+        else
+            i = mid + 1;
+
+        result = i;
+    }
+
+    return data[result];
+}
+
 void test_chapter_2()
 {
     cout << "TEST_CHAPTER_2 ====================================" << endl;
@@ -248,6 +284,11 @@ void test_chapter_2()
 
     reverse_part_of_list(&head, 0, 7);
     PrintList(head);
+
+//    int array1[] = {3, 4, 5, 1, 2};
+    int array1[] = {2};
+    cout << min_in_rotated_array(array1, sizeof(array1)/sizeof(int)) << endl;
+//    min_in_rotated_array(NULL, 6);
 
     cout << "TEST_CHAPTER_2 ====================================" << endl;
 }
