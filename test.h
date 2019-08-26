@@ -8,6 +8,8 @@
 
 void test_tree();
 
+void test_sort();
+
 void test();
 
 #endif //CPPDEMO_TEST_H

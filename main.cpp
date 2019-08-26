@@ -9,8 +9,9 @@ int main(int argc, char* argv[])
 {
 //    test_tree();
 
-    test();
+//    test();
 
+    test_sort();
 
     cout << setfill('*') << setw(7) << "中国" << endl;
 
