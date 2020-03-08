@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 #include "test.h"
 #include "sort/sort.h"
@@ -46,10 +47,21 @@ void test_sort()
 {
 //    int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int data[] = {-10, 4, 3, 3, -1, -5, 0, -2, 7, -9, -9, -99, 100, -999};
-    quick_sort(data, sizeof(data)/sizeof(int));
 
+    int* data2 = (int*)malloc(sizeof(data));
+    memcpy(data2, data, sizeof(data));
+    for(int i=0; i<sizeof(data)/sizeof(int); ++i)
+        cout << data2[i] << " ";
+    cout << endl;
+
+    quick_sort(data, sizeof(data)/sizeof(int));
     for(int i=0; i<sizeof(data)/sizeof(int); ++i)
         cout << data[i] << " ";
+    cout << endl;
+
+    quick_sort_2(data2, sizeof(data)/sizeof(int));
+    for(int i=0; i<sizeof(data)/sizeof(int); ++i)
+        cout << data2[i] << " ";
     cout << endl;
 }
 
